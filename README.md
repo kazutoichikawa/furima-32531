@@ -10,9 +10,8 @@
 | f_name   | string  | null: false |
 | l_name_r | string  | null: false |
 | f_name_r | string  | null: false |
-| bday_y   | integer | null: false |
-| bday_m   | integer | null: false |
-| bday_d   | integer | null: false |
+| birthday   | integer | null: false |
+
 
 ### Association
 - has_many :comments
