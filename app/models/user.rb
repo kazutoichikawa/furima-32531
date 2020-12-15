@@ -9,9 +9,8 @@ class User < ApplicationRecord
  validates :f_name, presence: true
  validates :l_name_r, presence: true
  validates :f_name_r, presence: true
- validates :bday_y, presence: true
- validates :bday_m, presence: true
- validates :bday_d, presence: true
+ validates :birthday, presence: true
+ 
 
 
   devise :database_authenticatable, :registerable,
