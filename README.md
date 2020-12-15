@@ -10,7 +10,7 @@
 | f_name   | string  | null: false |
 | l_name_r | string  | null: false |
 | f_name_r | string  | null: false |
-| birthday   | integer | null: false |
+| birthday   | date | null: false |
 
 
 ### Association
