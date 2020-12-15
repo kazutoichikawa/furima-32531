@@ -1,24 +1,46 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
+| Column   | Type    | Options     |
+|----------|---------|-------------|
+| nickname | string  | null: false |
+| email    | string  | null: false |
+| password | string  | null: false |
+| l_name   | string  | null: false |
+| f_name   | string  | null: false |
+| l_name_r | string  | null: false |
+| f_name_r | string  | null: false |
+| bday_y   | integer | null: false |
+| bday_m   | integer | null: false |
+| bday_d   | integer | null: false |
 
-Things you may want to cover:
+### Association
+- has_many :comments
+- has_many :items
 
-* Ruby version
+## items テーブル
+| Column    | Type       | Options     |
+|-----------|------------|-------------|
+| title     | string     | null: false |
+| explain   | text       | null: false |
+| category  | string     | null: false |
+| condition | string     | null: false |
+| s_fee     | string     | null: false |
+| area      | string     | null: false |
+| days_to_s | string     | null: false |
+| user      | references | null: false |
 
-* System dependencies
+### Association
+- has_many :comments
+- belongs_to :users
 
-* Configuration
+## comments テーブル
+| Column    | Type       | Options     |
+|-----------|------------|-------------|
+| text      | text       | null: false |
+| user      | references | null: false |
+| item      | references | null: false |
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Association
+- belongs_to :items
+- belongs_to :users
