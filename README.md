@@ -47,19 +47,26 @@
 ## purchase_ms テーブル
 | Column    | Type       | Options     |
 |-----------|------------|-------------|
-| buy_user  | integer    | null: false |
+| c_num     | integer    | null: false |
+| ex_m      | integer    | null: false |
+| ex_y      | integer    | null: false |
+| s_code    | integer    | null: false |
 | user      | references | null: false |
 | items     | references | null: false |
 
-### Association
-has_one :s_address_m
-
-## s_address_ms Tableテーブル
-| Column    | Type       | Options     |
-|-----------|------------|-------------|
-| address   | text       | null: false |
-| user      | references | null: false |
-| items     | references | null: false |
 
 ### Association
-has_one :purchase_ms
+has_one :address
+
+## address Tableテーブル
+| Column        | Type       | Options     |
+|---------------|------------|-------------|
+| p_code        | string     | null: false |
+| prefecture_id | integer    | null: false |
+| city          | string     | null: false |
+| building      | string     |             |
+| p_num         | integer    | null: false |
+| purchase_ms   | references | null: false |
+
+### Association
+belongs_to :purchase_ms
