@@ -14,7 +14,6 @@
 
 
 ### Association
-- has_many :comments
 - has_many :items
 - has_many :purchase_ms
 
@@ -27,25 +26,13 @@
 | condition_id | integer    | null: false                    |
 | s_fee_id     | integer    | null: false                    |
 | area_id      | integer    | null: false                    |
-| days_to_s_id | integer    | null: false                    |
+| d_f_ship_id  | integer    | null: false                    |
 | price        | integer    | null: false                    |
 | user         | references | null: false, foreign_key: true |
 
 ### Association
-- has_many :comments
 - belongs_to :user
 - has_one :purchase_m
-
-## comments テーブル
-| Column    | Type       | Options                         |
-|-----------|------------|---------------------------------|
-| text      | text       | null: false                     |
-| user      | references | null: false, foreign_key: true  |
-| item      | references | null: false, foreign_key: true  |
-
-### Association
-- belongs_to :item
-- belongs_to :user
 
 ## purchase_ms テーブル
 | Column    | Type       | Options                        |
