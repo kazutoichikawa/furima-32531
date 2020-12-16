@@ -34,8 +34,8 @@
 
 ### Association
 - has_many :comments
-- belongs_to :users
-- has_one :purchase_ms
+- belongs_to :user
+- has_one :purchase_m
 
 ## comments テーブル
 | Column    | Type       | Options                         |
@@ -45,8 +45,8 @@
 | item      | references | null: false, foreign_key: true  |
 
 ### Association
-- belongs_to :items
-- belongs_to :users
+- belongs_to :item
+- belongs_to :user
 
 ## purchase_ms テーブル
 | Column    | Type       | Options                        |
@@ -71,4 +71,4 @@
 | purchase_ms   | references | null: false,foreign_key: true |
 
 ### Association
-- belongs_to :purchase_ms
+- belongs_to :purchase_m
