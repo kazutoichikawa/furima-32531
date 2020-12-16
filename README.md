@@ -64,6 +64,7 @@ has_one :address
 | p_code        | string     | null: false |
 | prefecture_id | integer    | null: false |
 | city          | string     | null: false |
+| address       | string     | null: false |
 | building      | string     |             |
 | p_num         | integer    | null: false |
 | purchase_ms   | references | null: false |
