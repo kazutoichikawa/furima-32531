@@ -19,18 +19,18 @@
 - has_many :purchase_ms
 
 ## items テーブル
-| Column       | Type       | Options           |
-|--------------|------------|-------------------|
-| title        | string     | null: false       |
-| explain      | text       | null: false       |
-| category_id  | integer    | null: false       |
-| condition_id | integer    | null: false       |
-| s_fee_id     | integer    | null: false       |
-| area_id      | integer    | null: false       |
-| days_to_s_id | integer    | null: false       |
-| condition_id | integer    | null: false       |
-| price        | integer    | null: false       |
-| user         | references | foreign_key: true |
+| Column       | Type       | Options                        |
+|--------------|------------|--------------------------------|
+| title        | string     | null: false                    |
+| explain      | text       | null: false                    |
+| category_id  | integer    | null: false                    |
+| condition_id | integer    | null: false                    |
+| s_fee_id     | integer    | null: false                    |
+| area_id      | integer    | null: false                    |
+| days_to_s_id | integer    | null: false                    |
+| condition_id | integer    | null: false                    |
+| price        | integer    | null: false                    |
+| user         | references | null: false, foreign_key: true |
 
 ### Association
 - has_many :comments
@@ -38,21 +38,21 @@
 - has_one :purchase_ms
 
 ## comments テーブル
-| Column    | Type       | Options            |
-|-----------|------------|--------------------|
-| text      | text       | null: false        |
-| user      | references | foreign_key: true |
-| item      | references | foreign_key: true  |
+| Column    | Type       | Options                         |
+|-----------|------------|---------------------------------|
+| text      | text       | null: false                     |
+| user      | references | null: false, foreign_key: true  |
+| item      | references | null: false, foreign_key: true  |
 
 ### Association
 - belongs_to :items
 - belongs_to :users
 
 ## purchase_ms テーブル
-| Column    | Type       | Options           |
-|-----------|------------|-------------------|
-| user      | references | foreign_key: true |
-| items     | references | foreign_key: true |
+| Column    | Type       | Options                        |
+|-----------|------------|--------------------------------|
+| user      | references | null: false, foreign_key: true |
+| items     | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
@@ -60,15 +60,15 @@
 - has_one :address
 
 ## address Tableテーブル
-| Column        | Type       | Options           |
-|---------------|------------|-------------------|
-| p_code        | string     | null: false       |
-| prefecture_id | integer    | null: false       |
-| city          | string     | null: false       |
-| address       | string     | null: false       |
-| building      | string     |                   |
-| p_num         | integer    | null: false       |
-| purchase_ms   | references | foreign_key: true |
+| Column        | Type       | Options                       |
+|---------------|------------|-------------------------------|
+| p_code        | string     | null: false                   |
+| prefecture_id | integer    | null: false                   |
+| city          | string     | null: false                   |
+| address       | string     | null: false                   |
+| building      | string     |                               |
+| p_num         | string     | null: false                   |
+| purchase_ms   | references | null: false,foreign_key: true |
 
 ### Association
 - belongs_to :purchase_ms
