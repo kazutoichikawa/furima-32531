@@ -9,8 +9,8 @@ class Item < ApplicationRecord
   has_one_attached :image
 
   with_options presence: true do
-    validates :title
-    validates :explain
+    validates :title, length:{ maximum: 40 }
+    validates :explain, length:{ maximum: 1000 }
     validates :price, numericality: {
                                     only_integer: true,
                                     greater_than_or_equal_to: 300,
