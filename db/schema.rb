@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 2020_12_15_191854) do
     t.integer "s_fee_id", null: false
     t.integer "area_id", null: false
     t.integer "d_f_ship_id", null: false
+    t.integer "price", null: false
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -61,8 +62,6 @@ ActiveRecord::Schema.define(version: 2020_12_15_191854) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

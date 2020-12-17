@@ -1,11 +1,12 @@
 class Item < ApplicationRecord
-  has_many :comments
-  belongs_to :users
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :user
   belongs_to :area
   belongs_to :category
   belongs_to :condition
   belongs_to :d_f_ship
   belongs_to :s_fee
+  has_one_attached :image
 
   with_options presence: true do
     validates :title
