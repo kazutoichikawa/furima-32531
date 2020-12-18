@@ -1,6 +1,5 @@
 class User < ApplicationRecord
   has_many :items
-
   with_options presence: true do
     validates :nickname
     validates :email, uniqueness: true
