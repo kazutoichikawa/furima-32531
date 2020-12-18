@@ -45,7 +45,8 @@
 - belongs_to :item
 - has_one :address
 
-## address Tableテーブル
+## address テーブル
+
 | Column        | Type       | Options                       |
 |---------------|------------|-------------------------------|
 | p_code        | string     | null: false                   |
@@ -58,3 +59,4 @@
 
 ### Association
 - belongs_to :purchase_m
+
