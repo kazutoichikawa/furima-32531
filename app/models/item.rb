@@ -8,9 +8,11 @@ class Item < ApplicationRecord
   belongs_to :s_fee
   has_one_attached :image
 
+
   with_options presence: true do
-    validates :title, length:{ maximum: 40 }
-    validates :explain, length:{ maximum: 1000 }
+    validates :image
+    validates :title, length: { maximum: 40 }
+    validates :explain, length: { maximum: 1000 }
     validates :price, numericality: {
                                     only_integer: true,
                                     greater_than_or_equal_to: 300,
@@ -25,4 +27,5 @@ class Item < ApplicationRecord
     validates :area_id
     validates :d_f_ship_id
   end
+  
 end
