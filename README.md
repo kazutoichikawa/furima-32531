@@ -46,6 +46,7 @@
 - has_one :address
 
 ## address テーブル
+
 | Column        | Type       | Options                       |
 |---------------|------------|-------------------------------|
 | p_code        | string     | null: false                   |
@@ -58,3 +59,4 @@
 
 ### Association
 - belongs_to :purchase_m
+
