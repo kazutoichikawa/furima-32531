@@ -24,6 +24,11 @@ RSpec.describe BuyUser, type: :model do
         @order.valid?
         expect(@order.errors.full_messages).to include("P code can't be blank")
       end
+      it '郵便番号にハイフンが含まれていないと登録できない' do
+        @order.p_code = 1234567
+        @order.valid?
+        expect(@order.errors.full_messages).to include("P code is invalid")
+      end
 
       it '都道府県が空では登録できない' do
         @order.prefecture_id = nil
@@ -47,6 +52,16 @@ RSpec.describe BuyUser, type: :model do
         @order.p_num = nil
         @order.valid?
         expect(@order.errors.full_messages).to include("P num can't be blank")
+      end
+      it '電話番号に文字列が含まれていると登録できない'do
+        @order.p_num = "あああああああああああ"
+        @order.valid?
+        expect(@order.errors.full_messages).to include("P num is invalid")
+      end
+      it '電話番号にハイフンが含まれていると登録できない'do
+        @order.p_num = '080-1234-5678'
+        @order.valid?
+        expect(@order.errors.full_messages).to include("P num is too long (maximum is 11 characters)")
       end
 
     end

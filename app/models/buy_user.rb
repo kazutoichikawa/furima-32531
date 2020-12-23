@@ -2,12 +2,13 @@ class BuyUser
   include ActiveModel::Model
   attr_accessor :p_code, :prefecture_id, :city, :address, :building, :p_num, :user_id, :item_id, :token
   with_options presence: true do
-    validates :p_code
+    validates :p_code,        format: { with: /\A\d{3}[-]\d{4}\z/}
     validates :prefecture_id, numericality: { other_than: 0, message: "can't be blank" }
     validates :city
     validates :address
     validates :building
-    validates :p_num
+    validates :p_num, format: { with: /\A0(\d{1}[-(]?\d{4}|\d{2}[-(]?\d{3}|\d{3}[-(]?\d{2}|\d{4}[-(]?\d{1})[-)]?\d{4}\z|\A0[5789]0[-]?\d{4}[-]?\d{4}\z/},
+                      length: { in: 1..11 }
     validates :token
   end
   def save
