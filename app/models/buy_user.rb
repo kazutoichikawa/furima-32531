@@ -8,11 +8,11 @@ class BuyUser
     validates :address
     validates :building
     validates :p_num
+    validates :token
   end
   def save
-    # binding.pry
     purchase_m = PurchaseM.create(user_id: user_id, item_id: item_id)
-    Address.create!(p_code: p_code, prefecture_id: prefecture_id, city: city, address: address, building: building, p_num: p_num, purchase_m_id: purchase_m.id)
+    Address.create(p_code: p_code, prefecture_id: prefecture_id, city: city, address: address, building: building, p_num: p_num, purchase_m_id: purchase_m.id)
     
   end
 end
