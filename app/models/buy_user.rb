@@ -1,6 +1,6 @@
 class BuyUser
   include ActiveModel::Model
-  attr_accessor :p_code, :prefecture_id, :city, :address, :building, :p_num, :user_id, :item_id, :token
+  attr_accessor :p_code, :prefecture_id, :city, :address, :building, :p_num, :user_id, :item_id, :token, :image
   with_options presence: true do
     validates :p_code,        format: { with: /\A\d{3}[-]\d{4}\z/}
     validates :prefecture_id, numericality: { other_than: 0, message: "can't be blank" }
