@@ -10,6 +10,12 @@ RSpec.describe BuyUser, type: :model do
       it "トークン、郵便番号、都道府県、市町村、番地、建物、電話番号があれば保存できる" do
         expect(@order).to be_valid
       end
+
+      it "建物がなくても保存できる" do
+        @order.building = ''
+        expect(@order).to be_valid
+      end
+
     end
 
     context '購入が失敗するとき' do
@@ -62,6 +68,24 @@ RSpec.describe BuyUser, type: :model do
         @order.p_num = '080-1234-5678'
         @order.valid?
         expect(@order.errors.full_messages).to include("P num is too long (maximum is 11 characters)")
+      end
+
+      it '電話番号が12桁以上だと登録できない'do
+        @order.p_num = '080-1234-567891'
+        @order.valid?
+        expect(@order.errors.full_messages).to include("P num is too long (maximum is 11 characters)")
+      end
+
+      it 'user_idがないと登録できない'do
+        @order.user_id = nil
+        @order.valid?
+        expect(@order.errors.full_messages).to include("User can't be blank")
+      end
+
+      it 'item_idがないと登録できない' do
+        @order.item_id = nil
+        @order.valid?
+        expect(@order.errors.full_messages).to include("Item can't be blank")
       end
 
     end

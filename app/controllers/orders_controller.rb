@@ -17,7 +17,6 @@ class OrdersController < ApplicationController
     if @order.valid?
       pay_item
       @order.save
-      @item = Item.find(params[:item_id])
       return redirect_to root_path
     else
       render 'index'

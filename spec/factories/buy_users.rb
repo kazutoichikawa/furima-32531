@@ -7,5 +7,7 @@ FactoryBot.define do
     address {"てすと"}
     building {"てすと"}
     p_num {"08012345678"}
+    user_id {1}
+    item_id {1}
   end
 end

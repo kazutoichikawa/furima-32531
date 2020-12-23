@@ -6,10 +6,11 @@ class BuyUser
     validates :prefecture_id, numericality: { other_than: 0, message: "can't be blank" }
     validates :city
     validates :address
-    validates :building
     validates :p_num, format: { with: /\A0(\d{1}[-(]?\d{4}|\d{2}[-(]?\d{3}|\d{3}[-(]?\d{2}|\d{4}[-(]?\d{1})[-)]?\d{4}\z|\A0[5789]0[-]?\d{4}[-]?\d{4}\z/},
                       length: { in: 1..11 }
     validates :token
+    validates :user_id
+    validates :item_id
   end
   def save
     purchase_m = PurchaseM.create(user_id: user_id, item_id: item_id)
