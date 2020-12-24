@@ -31,7 +31,7 @@ RSpec.describe BuyUser, type: :model do
         expect(@order.errors.full_messages).to include("P code can't be blank")
       end
       it '郵便番号にハイフンが含まれていないと登録できない' do
-        @order.p_code = 1234567
+        @order.p_code = "1234567"
         @order.valid?
         expect(@order.errors.full_messages).to include("P code is invalid")
       end
