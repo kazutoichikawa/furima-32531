@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_many :items
-  has_one :purchase_m
+  has_many :purchase_ms
   with_options presence: true do
     validates :nickname
     validates :email, uniqueness: true
