@@ -42,6 +42,12 @@ RSpec.describe BuyUser, type: :model do
         expect(@order.errors.full_messages).to include("Prefecture can't be blank")
       end
 
+      it '都道府県が「0」では登録できない' do
+        @order.prefecture_id = 0
+        @order.valid?
+        expect(@order.errors.full_messages).to include("Prefecture can't be blank")
+      end
+
       it '市町村が空では登録できない' do
         @order.city = ''
         @order.valid?
@@ -87,7 +93,6 @@ RSpec.describe BuyUser, type: :model do
         @order.valid?
         expect(@order.errors.full_messages).to include("Item can't be blank")
       end
-
     end
   end
 end
